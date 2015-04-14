@@ -12,7 +12,8 @@
     <div ng-controller="TodoListController as todoList">
       <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
 
-      [ <a href="" ng-click="todoList.archive()">archive</a> ]
+      <a href="" ng-click="todoList.archive()">archive</a> | 
+      <a href="" ng-click="todoList.unarchive()">unarchive {{todoList.todos_archive.length}}</a>
 
       <ul class="unstyled">
         <li ng-repeat="todo in todoList.todos">
