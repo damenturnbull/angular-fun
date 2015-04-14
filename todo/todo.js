@@ -8,6 +8,8 @@ angular.module('todoApp', [])
       {text:'build an angular app', done:false}
     ];
 
+    todoList.todos_archive = [];
+
     todoList.addTodo = function() {
       todoList.todos.push({text:todoList.todoText, done:false});
       todoList.todoText = '';
@@ -20,10 +22,16 @@ angular.module('todoApp', [])
       });
       return count;
     };
-    
+
     todoList.archive = function() {
-      var oldTodos = todoList.todos;
-      todoList.todos = [];
+      // Archive old
+      angular.forEach(todoList.todos, function(todo){
+        if(todo.done) todoList.todos_archive.push(todo);
+      });
+      
+      // Create temp and push remaining to new array
+      var oldTodos    = todoList.todos;
+      todoList.todos  = [];
       angular.forEach(oldTodos, function(todo) {
         if (!todo.done) todoList.todos.push(todo);
       });
