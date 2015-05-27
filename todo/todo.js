@@ -9,8 +9,6 @@ todoApp.controller('TodoListController', function() {
     {text:'build an angular app', done:false}
   ];
 
-  // console.log(todoList.todos);
-
   todoList.todos_archive = [];
 
   todoList.addTodo = function() {
